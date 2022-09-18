@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function a() {
+
+            // 함수 a 안에서의 지역변수 i
+            var i = 0;
+        }
+
+        // for 문은 블록 스코프이므로 i 는 전역변수이다. 
+        for(var i = 0; i < 5; i++) {
+            a();
+            document.write(i);
+        }
+
+        /* 여기서의 i 는 for 문에 사용된 i 이다. */
+        console.log(i);
+
+        function b() {
+
+            // var 이 없으므로 i 는 전역변수다.
+            i = 0;
+        }
+
+        for(var i = 0; i < 5; i++) {
+
+            // 여기에서 i 는 계속해서 0으로 고정이기 때문에 무한반복이 된다.
+            b();
+            document.write(i);
+        }
+    </script>
+    
+</body>
+</html>
